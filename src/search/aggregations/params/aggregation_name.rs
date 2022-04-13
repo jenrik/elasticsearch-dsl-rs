@@ -10,3 +10,8 @@ where
         Self(value.to_string())
     }
 }
+impl AsRef<str> for AggregationName {
+    fn as_ref(&self) -> &str {
+        self.0.as_str()
+    }
+}

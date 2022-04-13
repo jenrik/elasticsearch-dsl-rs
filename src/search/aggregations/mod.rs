@@ -13,11 +13,16 @@
 //! - [Bucket](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket.html) aggregations that group documents into buckets, also called bins, based on field values, ranges, or other criteria.
 //! - [Pipeline](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-pipeline.html) aggregations that take input from other aggregations instead of documents or fields.
 
+// Private modules
+mod aggregations_handler;
+
+// Public modules
 pub mod bucket;
 pub mod metrics;
 pub mod params;
 pub mod pipeline;
 
+pub use self::aggregations_handler::*;
 pub use self::bucket::*;
 pub use self::metrics::*;
 pub use self::params::*;

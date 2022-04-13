@@ -1,4 +1,4 @@
-use crate::util::*;
+use crate::{util::*, AggregationsHandler};
 use serde_json::Value;
 use std::collections::HashMap;
 
@@ -207,6 +207,13 @@ pub enum Relation {
     /// to `true`, exact number of matched documents will be brought back
     #[serde(rename = "eq")]
     Equal,
+}
+
+impl SearchResponse {
+    /// Returns Aggregations handler
+    pub fn aggregations(&self) -> AggregationsHandler {
+        AggregationsHandler::new(self.aggregations.as_ref())
+    }
 }
 
 #[cfg(test)]
